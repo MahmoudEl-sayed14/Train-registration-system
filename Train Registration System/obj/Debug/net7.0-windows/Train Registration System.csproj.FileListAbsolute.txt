@@ -1,0 +1,26 @@
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\bin\Debug\net7.0-windows\Train Registration System.exe
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\bin\Debug\net7.0-windows\Train Registration System.deps.json
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\bin\Debug\net7.0-windows\Train Registration System.runtimeconfig.json
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\bin\Debug\net7.0-windows\Train Registration System.dll
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\bin\Debug\net7.0-windows\Train Registration System.pdb
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.csproj.AssemblyReference.cache
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.registerFrm.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.csproj.GenerateResource.cache
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.AssemblyInfoInputs.cache
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.AssemblyInfo.cs
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.csproj.CoreCompileInputs.cache
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.dll
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\refint\Train Registration System.dll
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.pdb
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train Registration System.genruntimeconfig.cache
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\ref\Train Registration System.dll
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.Properties.Resources.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.LoginForm.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.Trip.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.AdminDashboard.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.TripRegister.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.AddTrip.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.AdminAccount.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.UserDashboard.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.UserAccount.resources
