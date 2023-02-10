@@ -16,7 +16,7 @@
     • Can see how many tickets have been sold for trip.
 </pre>
 # UML diagram :
-  ![image](https://user-images.githubusercontent.com/124709587/217572773-c080e8bb-e2be-4803-a611-ee7059770272.png)
+  ![UML](https://user-images.githubusercontent.com/124709587/218222101-20553efb-e467-429e-955e-ac191558f8bc.png)
 <pre>
   The classes used in constructing this app are represented in a UML diagram, where:
 
