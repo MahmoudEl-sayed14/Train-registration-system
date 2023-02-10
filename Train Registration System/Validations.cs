@@ -19,7 +19,7 @@ namespace Train_Registration_System
             MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private bool IsValidPhoneNumber(string phone)
+        public bool IsValidPhoneNumber(string phone)
         {
             if (string.IsNullOrEmpty(phone))
                 return false;
@@ -27,7 +27,7 @@ namespace Train_Registration_System
             string pattern = @"^(010|011|012|015)\d{8}$";
             return Regex.IsMatch(phone, pattern);
         }
-        private bool IsValidEmail(string email)
+        public bool IsValidEmail(string email)
         {
             string pattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" +
                              "@" + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$";
