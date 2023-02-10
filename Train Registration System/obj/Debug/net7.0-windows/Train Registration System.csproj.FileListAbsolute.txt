@@ -17,10 +17,10 @@ D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration Sys
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\ref\Train Registration System.dll
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.Properties.Resources.resources
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.LoginForm.resources
-D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.Trip.resources
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.AdminDashboard.resources
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.TripRegister.resources
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.AddTrip.resources
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.AdminAccount.resources
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.UserDashboard.resources
 D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.UserAccount.resources
+D:\Study_2\Data_Structure\Codes\Train Registration System\Train Registration System\obj\Debug\net7.0-windows\Train_Registration_System.TicketRegister.resources

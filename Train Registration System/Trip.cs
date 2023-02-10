@@ -1,94 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Train_Registration_System
 {
-    public partial class Trip : UserControl
+    internal class Trip : Paths
     {
-        public string email;
-        public Trip()
+        private static void Insert(string path, string item)
         {
-            InitializeComponent();
+            File.AppendAllLines(path, new[] { item });
         }
-
-        private void saveBtn_Click(object sender, EventArgs e)
+        public void InsertTripData(string tripName, string from, string to, string trainNumber, string platformNumber, string date, string time, string price)
         {
-            List<string> selectedButtons = new List<string>();
-
-            for (int i = 1; i <= 32; i++)
+            string[] tripInfo = new string[] { to, tripName, from, trainNumber, platformNumber, date, time, price };
+            foreach (var info in tripInfo)
             {
-                Button? button = Controls["btn" + i] as Button;
-                if (button?.BackColor == Color.Green)
+                Insert(TripPath, info);
+            }
+        }
+        public Dictionary<string, string> GetTripData()
+        {
+            string[] tripData = File.ReadAllLines(TripPath);
+            if (tripData.Length == 8)
+            {
+                return new Dictionary<string, string>
                 {
-                    selectedButtons.Add(i.ToString());
-                    button.Enabled = false;
-                    button.BackColor = Color.White;
-                }
+                    ["to"] = tripData[0],
+                    ["tripName"] = tripData[1],
+                    ["from"] = tripData[2],
+                    ["trainNumber"] = tripData[3],
+                    ["platformNumber"] = tripData[4],
+                    ["date"] = tripData[5],
+                    ["time"] = tripData[6],
+                    ["price"] = tripData[7]
+                };
             }
-
-            if (selectedButtons.Count > 0)
+            else
             {
-                string[] selectedButtonsArray = selectedButtons.ToArray();
-                var data = new Data();
-                data.UserBookedTickets(email, selectedButtonsArray);
-            }
-        }
-        private void button_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            button.BackColor = (button.BackColor == Color.White) ? Color.Green : Color.White;
-        }
-        private void cancelBtn_Click(object sender, EventArgs e)
-        {
-            for (int i = 1; i <= 32; i++)
-            {
-                Button? button = Controls["btn" + i] as Button;
-                button.BackColor = Color.White;
-            }
-        }
-        private void RoundButtonBorder(Button button)
-        {
-            button.Font = new Font("Arial", 14, FontStyle.Bold);
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, 10, 10, 180, 90);
-            path.AddArc(button.Width - 11, 0, 10, 10, 270, 90);
-            path.AddArc(button.Width - 11, button.Height - 11, 10, 10, 0, 90);
-            path.AddArc(0, button.Height - 11, 10, 10, 90, 90);
-            path.CloseFigure();
-            button.Region = new Region(path);
-        }
-        private void Trip_Load(object sender, EventArgs e)
-        {
-            RoundButtonBorder(saveBtn);
-            RoundButtonBorder(cancelBtn);
-            DisableBookedButtons();
-        }
-        private void DisableBookedButtons()
-        {
-            var data = new Data();
-            string[] bookedTickets = data.GetAllBookedTickets();
-
-            foreach (string userBookedTickets in bookedTickets)
-            {
-                string[] numbers = userBookedTickets.Split(' ');
-                
-                foreach (string number in numbers)
+                return new Dictionary<string, string>
                 {
-                    if (int.TryParse(number, out int buttonNumber))
-                    {
-                        Button? button = Controls["btn" + buttonNumber] as Button;
-                        button.Enabled = false;
-                    }                    
-                }
-            
+                    ["to"] = "Null",
+                    ["tripName"] = "Null",
+                    ["from"] = "Null",
+                    ["trainNumber"] = "Null",
+                    ["platformNumber"] = "Null",
+                    ["date"] = "Null",
+                    ["time"] = "Null",
+                    ["price"] = "Null"
+                };
             }
         }
     }

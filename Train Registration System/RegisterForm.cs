@@ -33,7 +33,6 @@ namespace Train_Registration_System
 
             pictureBox?.Hide();
         }
-
         private void OnInputLeave(object sender, EventArgs e)
         {
             PictureBox pictureBox = null;
@@ -58,30 +57,25 @@ namespace Train_Registration_System
 
             pictureBox?.Show();
         }
-
         private void InitializePasswordVisibility()
         {
             passwordTxt.UseSystemPasswordChar = !_passwordVisible;
             hidePictureBox.Visible = !_passwordVisible;
             showPictureBox.Visible = _passwordVisible;
         }
-
         private void OnPasswordVisibilityToggle(object sender, EventArgs e)
         {
             _passwordVisible = !_passwordVisible;
             InitializePasswordVisibility();
         }
-
         private void clearBtn_Click(object sender, EventArgs e)
         {
             clear_Form();
         }
-
         private void phoneTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-       
         private void backToLogin_Click(object sender, EventArgs e)
         {
             var loginForm = new LoginForm();
@@ -89,7 +83,6 @@ namespace Train_Registration_System
             Hide();
 
         }
-
         private void clear_Form()
         {
             nameTxt.Clear();
@@ -102,7 +95,6 @@ namespace Train_Registration_System
             mailPictureBox.Show();
             lockPictureBox.Show();
         }
-
         private void registerBtn_Click(object sender, EventArgs e)
         {
             var validations = new Validations();

@@ -16,7 +16,8 @@ namespace Train_Registration_System
         public AddTrip()
         {
             InitializeComponent();
-            RoundButtonBorder(addTripBtn);
+            var style = new Style();
+            style.RoundButtonBorder(addTripBtn);
         }
         private void Txt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -24,6 +25,7 @@ namespace Train_Registration_System
         }
         private void addTripBtn_Click(object sender, EventArgs e)
         {
+            var message = new Style();
             if (!IsEmptyTrip())
             {
                 DateTime selectedDate = date.Value.Date;
@@ -31,15 +33,15 @@ namespace Train_Registration_System
 
                 string time = BuildTimeString(hourTxt.Text, minTxt.Text, timeComboBox.Text);
                 
-                var data = new Data();
-                data.InsertTrip(tripNameTxt.Text, fromComboBox.Text, toComboBox.Text, trainNumberTxt.Text, platformNumberTxt.Text, dateOnlyString, time, ticketPriceTxt.Text);
-                
-                MessageBox.Show("Trip added.");
+                var trip = new Trip();
+                trip.InsertTripData(tripNameTxt.Text, fromComboBox.Text, toComboBox.Text, trainNumberTxt.Text, platformNumberTxt.Text, dateOnlyString, time, ticketPriceTxt.Text);
+
+                message.ShowSuccess("Trip added.");
                 clear();
             }
             else
             {
-                MessageBox.Show("Please fill out all fields of the trip.");
+                message.ShowError("Please fill out all fields of the trip.");
             }
         }
         private void clear()
@@ -70,16 +72,6 @@ namespace Train_Registration_System
         {
             return hour + " : " + min + " : " + timeOfDay;
         }
-        private void RoundButtonBorder(Button button)
-        {
-            button.Font = new Font("Arial", 14, FontStyle.Bold);
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, 10, 10, 180, 90);
-            path.AddArc(button.Width - 11, 0, 10, 10, 270, 90);
-            path.AddArc(button.Width - 11, button.Height - 11, 10, 10, 0, 90);
-            path.AddArc(0, button.Height - 11, 10, 10, 90, 90);
-            path.CloseFigure();
-            button.Region = new Region(path);
-        }
+        
     }
 }

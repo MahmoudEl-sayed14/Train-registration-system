@@ -1,6 +1,6 @@
 ﻿namespace Train_Registration_System
 {
-    partial class Trip
+    partial class TicketRegister
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Trip));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketRegister));
             this.checkSeatLabel = new System.Windows.Forms.Label();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();

@@ -54,8 +54,8 @@ namespace Train_Registration_System
         }
         private void Home_Load(object sender, EventArgs e)
         {
-            var data = new Data();
-            Dictionary<string, string> userData = data.GetUserData(email);
+            var user = new User();
+            Dictionary<string, string> userData = user.GetUserData(email);
 
             userNameLabel.Text = userData["name"];
         }
@@ -74,7 +74,7 @@ namespace Train_Registration_System
         }
         private void bookBtn_Click(object sender, EventArgs e)
         {
-            Trip user = new Trip();
+            TicketRegister user = new TicketRegister();
             user.email = email;
             ShowUserControl(user);
             bookPanel.Visible = false;

@@ -10,15 +10,6 @@ namespace Train_Registration_System
 {
     internal class Validations
     {
-        private void ShowError(string message)
-        {
-            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void ShowSuccess(string message)
-        {
-            MessageBox.Show(message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         public bool IsValidPhoneNumber(string phone)
         {
             if (string.IsNullOrEmpty(phone))
@@ -36,63 +27,29 @@ namespace Train_Registration_System
         public void IsValidForm(string name, string phone, string email, string password)
         {
             string[] formFields = { name, phone, email, password };
+            var message = new Style();
 
             if (formFields.Any(string.IsNullOrWhiteSpace))
             {
-                ShowError("Please fill all form fields.");
+                message.ShowError("Please fill all form fields.");
                 return;
             }
 
             if (!IsValidEmail(email))
             {
-                ShowError("Please enter a valid email address.");
+                message.ShowError("Please enter a valid email address.");
                 return;
             }
 
             if (!IsValidPhoneNumber(phone))
             {
-                ShowError("Please enter a valid phone number.");
+                message.ShowError("Please enter a valid phone number.");
                 return;
             }
 
-            var data = new Data();
-            data.InsertData(name, email, phone, password);
-            ShowSuccess("Account created successfully.");
-        }
-        
-        public bool LoginUser(string email, string password)
-        {
-            switch (email)
-            {
-                case "admin":
-                    if (FindAdmin(password))
-                    {
-                        new AdminDashboard().Show();
-                        return true;
-                    }
-                    break;
-                default:
-                    if (FindUser(email, password))
-                    {
-                        new UserDashboard(email).Show();
-                        return true;
-                    }
-                    break;
-            }
-
-            ShowError("Incorrect Email or Password");
-            return false;
-        }
-        private bool FindAdmin(string password)
-        {
-            var data = new Data();
-            return data.FindAdmin(password);
-        }
-
-        private bool FindUser(string email, string password)
-        {
-            var data = new Data();
-            return data.FindUser(email, password);
-        }
+            var user = new User();
+            user.InsertUser(name, email, phone, password);
+            message.ShowSuccess("Account created successfully.");
+        }        
     }
 }

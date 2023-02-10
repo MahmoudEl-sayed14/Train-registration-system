@@ -17,12 +17,10 @@ namespace Train_Registration_System
         {
             InitializeComponent();
         }
-
         private void clearBtn_Click(object sender, EventArgs e)
         {
             clear_Form();
         }
-
         private void OnInputEnter(object sender, EventArgs e)
         {
             PictureBox pictureBox = null;
@@ -41,7 +39,6 @@ namespace Train_Registration_System
 
             pictureBox?.Hide();
         }
-
         private void OnInputLeave(object sender, EventArgs e)
         {
             PictureBox pictureBox = null;
@@ -60,7 +57,6 @@ namespace Train_Registration_System
 
             pictureBox?.Show();
         }
-
         private void clear_Form()
         {
             emailTxt.Clear();
@@ -69,31 +65,27 @@ namespace Train_Registration_System
             mailPictureBox.Show();
             lockPictureBox.Show();
         }
-
         private void InitializePasswordVisibility()
         {
             passwordTxt.UseSystemPasswordChar = !_passwordVisible;
             hidePictureBox.Visible = !_passwordVisible;
             showPictureBox.Visible = _passwordVisible;
         }
-
         private void OnPasswordVisibilityToggle(object sender, EventArgs e)
         {
             _passwordVisible = !_passwordVisible;
             InitializePasswordVisibility();
         }
-
         private void creatAccount_Click(object sender, EventArgs e)
         {
             var registerForm = new registerFrm();
             registerForm.Show();
             Close();
         }        
-        
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            var validation = new Validations();
-            if (validation.LoginUser(emailTxt.Text, passwordTxt.Text))
+            var authentication = new AuthenticationManager();
+            if (authentication.Login(emailTxt.Text, passwordTxt.Text))
             {
                 Close();
                 return;

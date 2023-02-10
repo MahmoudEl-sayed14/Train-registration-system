@@ -20,8 +20,8 @@ namespace Train_Registration_System
 
         private void TripRegister_Load(object sender, EventArgs e)
         {
-            var data = new Data();
-            var tripData = data.GetTripData();
+            var trip = new Trip();
+            var tripData = trip.GetTripData();
             
             destinationLabel.Text = $"Today we will go to: {tripData["to"]}";
             tripNameLabel.Text = $"Trip Name: {tripData["tripName"]}";
