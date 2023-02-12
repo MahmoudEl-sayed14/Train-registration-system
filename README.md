@@ -113,5 +113,6 @@
 ![Screenshot_20230207_041728](https://user-images.githubusercontent.com/124709587/218316544-4b1a0f33-b462-42ce-93fd-ad9f6cb6cf15.png)
 ![Screenshot_20230207_041740](https://user-images.githubusercontent.com/124709587/218316549-bbe44853-4d85-441b-a54d-b8de395ac7f2.png)
 <pre>
-  "throw the account page the adminstrator can see the booked ticket up till now by the users and also change this current password" 
+  "As an administrator, you have access to the account page, where you can view a record of all tickets booked by users to date. Additionally, you can change the 
+  current password from this page."
 </pre>
