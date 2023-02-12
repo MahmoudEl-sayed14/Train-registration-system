@@ -56,7 +56,7 @@
 <pre>
   "This is the initial form that users see when they log in to the application."
 </pre>
-![Screenshot_20230207_041824](https://user-images.githubusercontent.com/124709587/218318207-80f3fde7-0178-470b-bf1d-26aab50b33fa.png)
+![Screenshot_20230207_040938](https://user-images.githubusercontent.com/124709587/218330821-3cc47d24-df27-4dd1-b370-e6ef12406a70.png)
 <pre>
  "The interface includes a functional side bar menu, designed to enhance the user experience and provide an intuitive and interactive experience within the desktop   
   application."
