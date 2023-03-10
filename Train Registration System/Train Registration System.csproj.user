@@ -1,13 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="BookedTickets.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="NotFound.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Search.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="AddTrip.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="AdminAccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="AdminDashboard.cs">

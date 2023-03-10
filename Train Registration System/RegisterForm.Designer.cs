@@ -1,6 +1,6 @@
 ﻿namespace Train_Registration_System
 {
-    partial class registerFrm
+    partial class RegisterForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(registerFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.getStartLabel = new System.Windows.Forms.Label();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.passwordTxt = new System.Windows.Forms.TextBox();
@@ -76,6 +76,7 @@
             this.nameTxt.TabIndex = 2;
             this.nameTxt.Enter += new System.EventHandler(this.OnInputEnter);
             this.nameTxt.Leave += new System.EventHandler(this.OnInputLeave);
+            this.nameTxt.Validating += new System.ComponentModel.CancelEventHandler(this.NameTxt_Validating);
             // 
             // passwordTxt
             // 
@@ -90,6 +91,7 @@
             this.passwordTxt.UseSystemPasswordChar = true;
             this.passwordTxt.Enter += new System.EventHandler(this.OnInputEnter);
             this.passwordTxt.Leave += new System.EventHandler(this.OnInputLeave);
+            this.passwordTxt.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordTxt_Validating);
             // 
             // registerBtn
             // 
@@ -104,7 +106,7 @@
             this.registerBtn.TabIndex = 4;
             this.registerBtn.Text = "Register";
             this.registerBtn.UseVisualStyleBackColor = false;
-            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
+            this.registerBtn.Click += new System.EventHandler(this.RegisterBtn_Click);
             // 
             // clearBtn
             // 
@@ -118,7 +120,7 @@
             this.clearBtn.TabIndex = 4;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = true;
-            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
+            this.clearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // alreadyHaveAnAccountLabel
             // 
@@ -139,7 +141,7 @@
             this.backToLogin.Size = new System.Drawing.Size(120, 23);
             this.backToLogin.TabIndex = 5;
             this.backToLogin.Text = "Back to Login";
-            this.backToLogin.Click += new System.EventHandler(this.backToLogin_Click);
+            this.backToLogin.Click += new System.EventHandler(this.BackToLogin_Click);
             // 
             // phoneTxt
             // 
@@ -153,8 +155,9 @@
             this.phoneTxt.Size = new System.Drawing.Size(220, 36);
             this.phoneTxt.TabIndex = 2;
             this.phoneTxt.Enter += new System.EventHandler(this.OnInputEnter);
-            this.phoneTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneTxt_KeyPress);
+            this.phoneTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneTxt_KeyPress);
             this.phoneTxt.Leave += new System.EventHandler(this.OnInputLeave);
+            this.phoneTxt.Validating += new System.ComponentModel.CancelEventHandler(this.PhoneTxt_Validating);
             // 
             // emailTxt
             // 
@@ -169,6 +172,7 @@
             this.emailTxt.TabIndex = 2;
             this.emailTxt.Enter += new System.EventHandler(this.OnInputEnter);
             this.emailTxt.Leave += new System.EventHandler(this.OnInputLeave);
+            this.emailTxt.Validating += new System.ComponentModel.CancelEventHandler(this.EmailTxt_Validating);
             // 
             // userPictureBox
             // 
@@ -241,7 +245,7 @@
             this.hidePictureBox.TabStop = false;
             this.hidePictureBox.Click += new System.EventHandler(this.OnPasswordVisibilityToggle);
             // 
-            // registerFrm
+            // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,9 +268,10 @@
             this.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "registerFrm";
+            this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegisterFrm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.phonePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mailPictureBox)).EndInit();

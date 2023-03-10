@@ -23,28 +23,11 @@ namespace Train_Registration_System
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
-        private void addTripBtn_Click(object sender, EventArgs e)
+        private static string BuildTimeString(string hour, string min, string timeOfDay)
         {
-            var message = new Style();
-            if (!IsEmptyTrip())
-            {
-                DateTime selectedDate = date.Value.Date;
-                string dateOnlyString = selectedDate.ToString("dd/MM/yyyy");
-
-                string time = BuildTimeString(hourTxt.Text, minTxt.Text, timeComboBox.Text);
-                
-                var trip = new Trip();
-                trip.InsertTripData(tripNameTxt.Text, fromComboBox.Text, toComboBox.Text, trainNumberTxt.Text, platformNumberTxt.Text, dateOnlyString, time, ticketPriceTxt.Text);
-
-                message.ShowSuccess("Trip added.");
-                clear();
-            }
-            else
-            {
-                message.ShowError("Please fill out all fields of the trip.");
-            }
+            return hour + " : " + min + " : " + timeOfDay;
         }
-        private void clear()
+        private void Clear()  
         {
             tripNameTxt.Text =
             fromComboBox.Text =
@@ -68,10 +51,26 @@ namespace Train_Registration_System
             }
             return false;
         }
-        private string BuildTimeString(string hour, string min, string timeOfDay)
+        private void AddTripBtn_Click(object sender, EventArgs e)
         {
-            return hour + " : " + min + " : " + timeOfDay;
+            var message = new Style();
+            if (!IsEmptyTrip())
+            {
+                DateTime selectedDate = date.Value.Date;
+                string dateOnlyString = selectedDate.ToString("dd/MM/yyyy");
+
+                string time = BuildTimeString(hourTxt.Text, minTxt.Text, timeComboBox.Text);
+
+                var tripManager = new TripManager();
+                tripManager.InsertTripData(tripNameTxt.Text, fromComboBox.Text, toComboBox.Text, trainNumberTxt.Text, platformNumberTxt.Text, dateOnlyString, time, ticketPriceTxt.Text);
+
+                message.ShowSuccess("Trip added.");
+                Clear();
+            }
+            else
+            {
+                message.ShowError("Please fill out all fields of the trip.");
+            }
         }
-        
     }
 }

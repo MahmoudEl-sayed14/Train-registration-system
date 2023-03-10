@@ -93,7 +93,7 @@
             this.addTripBtn.TabIndex = 7;
             this.addTripBtn.Text = "Add";
             this.addTripBtn.UseVisualStyleBackColor = false;
-            this.addTripBtn.Click += new System.EventHandler(this.addTripBtn_Click);
+            this.addTripBtn.Click += new System.EventHandler(this.AddTripBtn_Click);
             // 
             // timeComboBox
             // 
@@ -156,6 +156,7 @@
             // 
             // minTxt
             // 
+            this.minTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.minTxt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.minTxt.Location = new System.Drawing.Point(542, 291);
             this.minTxt.Name = "minTxt";
@@ -165,6 +166,7 @@
             // 
             // hourTxt
             // 
+            this.hourTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.hourTxt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.hourTxt.Location = new System.Drawing.Point(483, 291);
             this.hourTxt.Name = "hourTxt";
@@ -174,6 +176,7 @@
             // 
             // ticketPriceTxt
             // 
+            this.ticketPriceTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ticketPriceTxt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ticketPriceTxt.Location = new System.Drawing.Point(232, 340);
             this.ticketPriceTxt.Name = "ticketPriceTxt";
@@ -183,6 +186,7 @@
             // 
             // platformNumberTxt
             // 
+            this.platformNumberTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.platformNumberTxt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.platformNumberTxt.Location = new System.Drawing.Point(265, 240);
             this.platformNumberTxt.Name = "platformNumberTxt";
@@ -191,6 +195,7 @@
             // 
             // trainNumberTxt
             // 
+            this.trainNumberTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.trainNumberTxt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.trainNumberTxt.Location = new System.Drawing.Point(234, 190);
             this.trainNumberTxt.Name = "trainNumberTxt";
@@ -200,6 +205,7 @@
             // 
             // tripNameTxt
             // 
+            this.tripNameTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tripNameTxt.Font = new System.Drawing.Font("Microsoft JhengHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tripNameTxt.Location = new System.Drawing.Point(176, 91);
             this.tripNameTxt.Name = "tripNameTxt";

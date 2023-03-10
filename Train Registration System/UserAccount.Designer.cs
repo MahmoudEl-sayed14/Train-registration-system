@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserAccount));
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.bookedTicketsLabel = new System.Windows.Forms.Label();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.changePasswordLabel = new System.Windows.Forms.Label();
             this.saveBtn = new System.Windows.Forms.Button();
             this.changePasswordPanel = new System.Windows.Forms.Panel();
-            this.changePasswordLabel = new System.Windows.Forms.Label();
             this.lockPictureBox2 = new System.Windows.Forms.PictureBox();
             this.newPasswordTxt = new System.Windows.Forms.TextBox();
             this.lockPictureBox3 = new System.Windows.Forms.PictureBox();
@@ -53,8 +53,8 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox.Controls.Add(this.cancelBtn);
             this.groupBox.Controls.Add(this.changePasswordLabel);
-            this.groupBox.Controls.Add(this.bookedTicketsLabel);
             this.groupBox.Controls.Add(this.saveBtn);
             this.groupBox.Controls.Add(this.changePasswordPanel);
             this.groupBox.Controls.Add(this.nameLabel);
@@ -64,21 +64,39 @@
             this.groupBox.ForeColor = System.Drawing.Color.Chocolate;
             this.groupBox.Location = new System.Drawing.Point(23, 40);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(795, 479);
+            this.groupBox.Size = new System.Drawing.Size(642, 466);
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Account";
             // 
-            // bookedTicketsLabel
+            // cancelBtn
             // 
-            this.bookedTicketsLabel.AutoSize = true;
-            this.bookedTicketsLabel.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bookedTicketsLabel.ForeColor = System.Drawing.Color.Black;
-            this.bookedTicketsLabel.Location = new System.Drawing.Point(90, 215);
-            this.bookedTicketsLabel.Name = "bookedTicketsLabel";
-            this.bookedTicketsLabel.Size = new System.Drawing.Size(231, 31);
-            this.bookedTicketsLabel.TabIndex = 15;
-            this.bookedTicketsLabel.Text = "Your booked tickets : ";
+            this.cancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(110)))), ((int)(((byte)(253)))));
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelBtn.FlatAppearance.BorderSize = 0;
+            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelBtn.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cancelBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cancelBtn.Location = new System.Drawing.Point(452, 374);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(134, 61);
+            this.cancelBtn.TabIndex = 16;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Visible = false;
+            this.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // changePasswordLabel
+            // 
+            this.changePasswordLabel.AutoSize = true;
+            this.changePasswordLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.changePasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(110)))), ((int)(((byte)(253)))));
+            this.changePasswordLabel.Location = new System.Drawing.Point(140, 302);
+            this.changePasswordLabel.Name = "changePasswordLabel";
+            this.changePasswordLabel.Size = new System.Drawing.Size(317, 37);
+            this.changePasswordLabel.TabIndex = 15;
+            this.changePasswordLabel.Text = "Change password";
+            this.changePasswordLabel.Click += new System.EventHandler(this.ChangePasswordLabel_Click);
             // 
             // saveBtn
             // 
@@ -88,14 +106,14 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.saveBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.saveBtn.Location = new System.Drawing.Point(558, 341);
+            this.saveBtn.Location = new System.Drawing.Point(297, 374);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(134, 61);
             this.saveBtn.TabIndex = 14;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = false;
             this.saveBtn.Visible = false;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            this.saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // changePasswordPanel
             // 
@@ -105,23 +123,11 @@
             this.changePasswordPanel.Controls.Add(this.confirmNewPasswordTxt);
             this.changePasswordPanel.Controls.Add(this.lockPictureBox1);
             this.changePasswordPanel.Controls.Add(this.currentPasswordTxt);
-            this.changePasswordPanel.Location = new System.Drawing.Point(26, 258);
+            this.changePasswordPanel.Location = new System.Drawing.Point(60, 70);
             this.changePasswordPanel.Name = "changePasswordPanel";
             this.changePasswordPanel.Size = new System.Drawing.Size(397, 197);
             this.changePasswordPanel.TabIndex = 1;
             this.changePasswordPanel.Visible = false;
-            // 
-            // changePasswordLabel
-            // 
-            this.changePasswordLabel.AutoSize = true;
-            this.changePasswordLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.changePasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(110)))), ((int)(((byte)(253)))));
-            this.changePasswordLabel.Location = new System.Drawing.Point(267, 345);
-            this.changePasswordLabel.Name = "changePasswordLabel";
-            this.changePasswordLabel.Size = new System.Drawing.Size(317, 37);
-            this.changePasswordLabel.TabIndex = 15;
-            this.changePasswordLabel.Text = "Change password";
-            this.changePasswordLabel.Click += new System.EventHandler(this.changePasswordLabel_Click);
             // 
             // lockPictureBox2
             // 
@@ -203,7 +209,7 @@
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.nameLabel.ForeColor = System.Drawing.Color.Black;
-            this.nameLabel.Location = new System.Drawing.Point(90, 65);
+            this.nameLabel.Location = new System.Drawing.Point(90, 79);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(80, 31);
             this.nameLabel.TabIndex = 0;
@@ -214,7 +220,7 @@
             this.phoneLabel.AutoSize = true;
             this.phoneLabel.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.phoneLabel.ForeColor = System.Drawing.Color.Black;
-            this.phoneLabel.Location = new System.Drawing.Point(90, 165);
+            this.phoneLabel.Location = new System.Drawing.Point(90, 179);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(89, 31);
             this.phoneLabel.TabIndex = 0;
@@ -225,19 +231,19 @@
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.emailLabel.ForeColor = System.Drawing.Color.Black;
-            this.emailLabel.Location = new System.Drawing.Point(90, 115);
+            this.emailLabel.Location = new System.Drawing.Point(90, 129);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(81, 31);
             this.emailLabel.TabIndex = 0;
             this.emailLabel.Text = "Email: ";
             // 
-            // Account
+            // UserAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox);
-            this.Name = "Account";
-            this.Size = new System.Drawing.Size(862, 565);
+            this.Name = "UserAccount";
+            this.Size = new System.Drawing.Size(710, 539);
             this.Load += new System.EventHandler(this.Account_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
@@ -265,6 +271,6 @@
         private TextBox confirmNewPasswordTxt;
         private Button saveBtn;
         private Label changePasswordLabel;
-        private Label bookedTicketsLabel;
+        private Button cancelBtn;
     }
 }

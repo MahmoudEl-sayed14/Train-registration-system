@@ -13,16 +13,29 @@ namespace Train_Registration_System
 {
     public partial class TicketRegister : UserControl
     {
-        public string email;
-        public TicketRegister()
+        readonly string email, tripName;
+        public TicketRegister(string email, string tripName)
         {
             InitializeComponent();
+
             var style = new Style();
             style.RoundButtonBorder(saveBtn);
             style.RoundButtonBorder(cancelBtn);
+
+            this.email = email;
+            this.tripName = tripName;
         }
 
-        private void saveBtn_Click(object sender, EventArgs e)
+        private void Trip_Load(object sender, EventArgs e)
+        {
+            DisableBookedButtons(tripName); 
+        }
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            button.BackColor = (button.BackColor == Color.White) ? Color.Green : Color.White;
+        }
+        private void SaveBtn_Click(object sender, EventArgs e)
         {
             List<string> selectedButtons = new List<string>();
 
@@ -40,16 +53,11 @@ namespace Train_Registration_System
             if (selectedButtons.Count > 0)
             {
                 string[] selectedButtonsArray = selectedButtons.ToArray();
-                var ticket = new Ticket();
-                ticket.UserBookedTickets(email, selectedButtonsArray);
+                var ticket = new TripManager();
+                ticket.BookTickets(email, tripName, selectedButtonsArray);
             }
         }
-        private void button_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            button.BackColor = (button.BackColor == Color.White) ? Color.Green : Color.White;
-        }
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
             for (int i = 1; i <= 32; i++)
             {
@@ -57,29 +65,27 @@ namespace Train_Registration_System
                 button.BackColor = Color.White;
             }
         }
-        private void Trip_Load(object sender, EventArgs e)
+        private void DisableBookedButtons(string tripName)
         {
-            DisableBookedButtons();
-        }
-        private void DisableBookedButtons()
-        {
-            var ticket = new Ticket();
-            string[] bookedTickets = ticket.GetAllBookedTickets();
+            var ticket = new TripManager();
+            string[]? bookedTickets = ticket.GetAllBookedTickets(tripName);
 
-            foreach (string userBookedTickets in bookedTickets)
+            if (bookedTickets != null)
             {
-                string[] numbers = userBookedTickets.Split(' ');
-                
-                foreach (string number in numbers)
+                foreach (string userBookedTickets in bookedTickets)
                 {
-                    if (int.TryParse(number, out int buttonNumber))
+                    string[] numbers = userBookedTickets.Split(' ');
+
+                    foreach (string number in numbers)
                     {
-                        Button? button = Controls["btn" + buttonNumber] as Button;
-                        button.Enabled = false;
-                    }                    
+                        if (int.TryParse(number, out int buttonNumber))
+                        {
+                            Button? button = Controls["btn" + buttonNumber] as Button;
+                            button.Enabled = false;
+                        }
+                    }
                 }
-            
             }
-        }
+        }   
     }
 }

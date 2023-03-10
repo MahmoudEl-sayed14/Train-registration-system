@@ -32,11 +32,52 @@ namespace Train_Registration_System
         {
             string[] emails = File.ReadAllLines(EmailPath);
             int index = Array.IndexOf(emails, email);
-            return index >= 0 ? index : -1;
-        } 
+            return index;
+        }
+        public bool UserChangePassword(string email, string currentPassword, string newPassword)
+        {
+            bool isAdmin = email.Equals("admin", StringComparison.OrdinalIgnoreCase);
+            if (isAdmin)
+            {
+                string adminPassword = File.ReadAllText(AdminPasswordPath);
+                if (adminPassword.Equals(currentPassword))
+                {
+                    File.WriteAllText(AdminPasswordPath, newPassword);
+                    return true;
+                }
+            }
+            else
+            {
+                var user = new User();
+                var userData = user.GetUserData(email);
+                int id = Convert.ToInt32(userData["id"]);
+
+                string[] passwords = File.ReadAllLines(PasswordPath);
+
+                if (id != -1 && passwords[id] == currentPassword)
+                {
+                    passwords[id] = newPassword;
+                    File.WriteAllLines(PasswordPath, passwords);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
         public Dictionary<string, string> GetUserData(string email)
         {
             int index = GetUserId(email);
+
+            if (index < 0)
+            {
+                return new Dictionary<string, string>
+                {
+                    ["name"] = null,
+                    ["phone"] = null,
+                    ["email"] = null,
+                    ["id"] = "-1"
+                };
+            }
 
             string[] names = File.ReadAllLines(UserNamePath);
             string[] phones = File.ReadAllLines(PhonePath);
@@ -46,6 +87,7 @@ namespace Train_Registration_System
             {
                 ["name"] = names[index],
                 ["phone"] = phones[index],
+                ["email"] = email,
                 ["id"] = id
             };
         }

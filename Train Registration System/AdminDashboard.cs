@@ -17,27 +17,53 @@ namespace Train_Registration_System
             InitializeComponent();
         }
 
-        private void homeBtn_Click(object sender, EventArgs e)
-        {
-            underLinePanel.Left = homeBtn.Left;
-            underLinePanel.Width = homeBtn.Width;
-            underLinePanel.Visible = true;
-            var trip = new AddTrip();
-            ShowUserControl(trip);
-        }
         private void ShowUserControl(UserControl control)
         {
             control.Dock = DockStyle.Fill;
             showPanel.Controls.Clear();
             showPanel.Controls.Add(control);
         }
-        private void accountBtn_Click(object sender, EventArgs e)
+        public void SetUnderlinePanel(Button button)
         {
-            underLinePanel.Left = accountBtn.Left;
-            underLinePanel.Width = accountBtn.Width;
+            underLinePanel.Left = button.Left;
+            underLinePanel.Width = button.Width;
             underLinePanel.Visible = true;
-            var admin = new AdminAccount();
+        }
+        private void HomeBtn_Click(object sender, EventArgs e)
+        {
+            SetUnderlinePanel(homeBtn);
+
+            var trip = new AddTrip();
+            ShowUserControl(trip);
+        }
+        private void TicketBtn_Click(object sender, EventArgs e)
+        {
+            SetUnderlinePanel(ticketBtn);
+
+            var tickets = new BookedTickets("admin");
+            ShowUserControl(tickets);
+        }
+        private void AccountBtn_Click(object sender, EventArgs e)
+        {
+            SetUnderlinePanel(accountBtn);
+
+            var admin = new UserAccount("admin");
             ShowUserControl(admin);
+        }
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            SetUnderlinePanel(searchBtn);
+
+            var search = new Search();
+            ShowUserControl(search);
+        }
+        private void AdminDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                form.Close();
+            }
+            Application.Exit();
         }
     }
 }

@@ -105,7 +105,7 @@
             this.creatAccount.Size = new System.Drawing.Size(123, 23);
             this.creatAccount.TabIndex = 14;
             this.creatAccount.Text = "Creat Account";
-            this.creatAccount.Click += new System.EventHandler(this.creatAccount_Click);
+            this.creatAccount.Click += new System.EventHandler(this.CreatAccount_Click);
             // 
             // donotHaveAnAccountLabel
             // 
@@ -128,7 +128,7 @@
             this.clearBtn.TabIndex = 12;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = true;
-            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
+            this.clearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // loginBtn
             // 
@@ -143,7 +143,7 @@
             this.loginBtn.TabIndex = 13;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = false;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            this.loginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // passwordTxt
             // 
@@ -158,6 +158,7 @@
             this.passwordTxt.UseSystemPasswordChar = true;
             this.passwordTxt.Enter += new System.EventHandler(this.OnInputEnter);
             this.passwordTxt.Leave += new System.EventHandler(this.OnInputLeave);
+            this.passwordTxt.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordTxt_Validating);
             // 
             // emailTxt
             // 
@@ -172,6 +173,7 @@
             this.emailTxt.TabIndex = 9;
             this.emailTxt.Enter += new System.EventHandler(this.OnInputEnter);
             this.emailTxt.Leave += new System.EventHandler(this.OnInputLeave);
+            this.emailTxt.Validating += new System.ComponentModel.CancelEventHandler(this.EmailTxt_Validating);
             // 
             // getStartLabel
             // 
@@ -205,6 +207,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.hidePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.showPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lockPictureBox)).EndInit();

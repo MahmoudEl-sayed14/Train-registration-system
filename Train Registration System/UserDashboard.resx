@@ -58,6 +58,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ticketBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAuFJREFUWEftl+9PEnEcx6m/oNXj+heqv6AHJbrGD4FWrK2sNcMHiWvzWXPWakno
+        AUpl2Y+1FB2k4Cp9kptrGcEdhBGkckqPWvgLhWPOwY5v3y/drQMOOAV6dK/tvRt37L6v+3y/n/shERH5
+        33R3g4MNBncL2jK7ipBi7sNNPW4V87M+IAGVmbBrH/p3zvX7HHxCSESB4Utqiy8l6/W2MbtrDAAH1GZi
+        uGucTK5s0eDO5DKlseBvuEKnzLOHlCZ8wTgTS7sWMuDi4/lteZ+3nTlcG9CA8EodXc4IFd3Kgp/bWYC2
+        HSPhVJPRnRsMVUSJ4ZHeD7HM9HIWoLh+pIECIyhpj+d47kTVwifC5sbr0FqDce4EnwgbuD+Oqsqcbv+U
+        E0G57SQTZw1uXSkRFE2/Py69ix9lTrk/KomgBH7tgvNWH617Fc7qbUug074Cpsl8mcG5TboZI2LNZt8z
+        pYkIy4weHTOEMJAI6pquCTJZSoTN4noGvPsWBzOLCbioV0Cno1jIEdoF1o8b4CWeBNpHgYTwLuN0TSWR
+        wkRh7r2NwgotFwmxEdxlQqamUmyeVdDyNAgm4aB8Mkiy3Rah5CZijBmWhyoqwsbuWwdXhoJgArY0n8gU
+        zM0xkoILPu/+lI8oUogoUogowkMz7O9b41XcR7yr4CoUcZYQQfeRjtEIpTTxv+/kocC8rZcGA9vfY2ne
+        wcqlZhXhIu/zXL/8ZH5rNpIErsBG7oHHNzg3wioCRYRUpBAZ5tHBh2FIbSGGYH6/D27SfBIoI54YrTLj
+        9PDXVBkRgVNTiTOGT8e0Vn+8hEhGZcIjjQ/cbXAKEnUVyQE7DF55kQwr8vdt//PJa89Da/UVgaB3VDhl
+        VHj136LmiqD/NBq+6FtfhFNIoG4iLNwusxNrGVgp8vR97xHmcK56Snh/0o+SySmS3nvX7BW0qC8M+FLc
+        inBBA6NKaAb8O3WpSCHoS5BPhAUJVPqiFBGpDxLJH19WIHzYlKJaAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="accountBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAABGdBTUEAALGPC/xhBQAAB7ZJREFUWEe9

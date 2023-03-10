@@ -14,7 +14,7 @@ namespace Train_Registration_System
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
-            Application.Run(new registerFrm());
+            Application.Run(new RegisterForm());
         }
         private static void Application_ApplicationExit(object sender, EventArgs e)
         {

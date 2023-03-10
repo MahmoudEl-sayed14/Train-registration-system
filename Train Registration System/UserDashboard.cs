@@ -14,14 +14,16 @@ namespace Train_Registration_System
 {
     public partial class UserDashboard : Form
     {
-        string email;
+        readonly string email;
+        readonly string[] tripsArray = new TripManager().GetAllTrips();
+        int currentTripIndex = 0;
         public UserDashboard(string email)
         {
             InitializeComponent();
             this.email = email;  
         }
 
-        private void menuBtn_Click(object sender, EventArgs e)
+        private void MenuBtn_Click(object sender, EventArgs e)
         {
             bool isOpen = sidebarPanel.Size.Width == 269;
             SetSidebarWidth(isOpen);
@@ -41,9 +43,11 @@ namespace Train_Registration_System
         private void ToggleButtonTextAndLocation(bool isOpen)
         {
             homeBtn.Text = isOpen ? "" : "Home";
-            homeBtn.Location = isOpen ? new Point(0, 108) : new Point(0, 253);
             accountBtn.Text = isOpen ? "" : "Account";
-            accountBtn.Location = isOpen ? new Point(0, 158) : new Point(0, 309);
+            ticketBtn.Text = isOpen ? "" : "Tickets";
+            
+            homeBtn.Location = isOpen ? new Point(0, 108) : new Point(0, 253);
+            ticketBtn.Location = isOpen ? new Point(0, 158) : new Point(0, 309);
         }
         private void ToggleButtonWidth(bool isOpen)
         {
@@ -51,6 +55,19 @@ namespace Train_Registration_System
             homeBtn.Width = width;
             accountBtn.Width = width;
             menuBtn.Width = width;
+            ticketBtn.Width = width;
+        }
+        private void ToggleControlsVisibility(bool showControls)
+        {
+            bookPanel.Visible = showControls;
+            leftPictureBox.Visible = showControls;
+            rightPictureBox.Visible = showControls;
+        }
+        private void ShowUserControl(UserControl control)
+        {
+            control.Dock = DockStyle.Fill;
+            ShowPanel.Controls.Clear();
+            ShowPanel.Controls.Add(control); 
         }
         private void Home_Load(object sender, EventArgs e)
         {
@@ -59,31 +76,74 @@ namespace Train_Registration_System
 
             userNameLabel.Text = userData["name"];
         }
-        private void homeBtn_Click(object sender, EventArgs e)
+        private void HomeBtn_Click(object sender, EventArgs e)
         {
-            TripRegister user = new TripRegister();
-            ShowUserControl(user);
-            bookPanel.Visible = true;
+            if (currentTripIndex >= tripsArray.Length)
+            {
+                ShowUserControl(new NotFound());
+                ToggleControlsVisibility(false);
+                return;
+            }
+
+            var trip = new TripRegister(tripsArray[currentTripIndex]);
+
+            ShowUserControl(trip);
+            ToggleControlsVisibility(true);
         }
-        private void accountBtn_Click(object sender, EventArgs e)
+        private void AccountBtn_Click(object sender, EventArgs e)
         {
-            UserAccount user = new UserAccount();
-            user.email = email;
+            var user = new UserAccount(email);
             ShowUserControl(user);
+
+            ToggleControlsVisibility(false);
+        }
+        private void BookBtn_Click(object sender, EventArgs e)
+        {
+            var ticket = new TicketRegister(email, tripsArray[currentTripIndex]);
+            ShowUserControl(ticket);
+
+            ToggleControlsVisibility(false);
+        }
+        private void TicketBtn_Click(object sender, EventArgs e)
+        {
+            var tickets = new TripManager();
+            var ticketsData = tickets.GetBookedTickets(email);
+            if (ticketsData != null)
+            {
+                var user = new BookedTickets(email);
+                ShowUserControl(user);
+            }
+            else
+            {
+                var notfound = new NotFound();
+                ShowUserControl(notfound);
+            }
             bookPanel.Visible = false;
+            leftPictureBox.Visible = false;
+            rightPictureBox.Visible = false;
+            
         }
-        private void bookBtn_Click(object sender, EventArgs e)
+        private void RightPictureBox_Click(object sender, EventArgs e)
         {
-            TicketRegister user = new TicketRegister();
-            user.email = email;
-            ShowUserControl(user);
-            bookPanel.Visible = false;
+            currentTripIndex++;
+
+            currentTripIndex = ((currentTripIndex % tripsArray.Length) + tripsArray.Length) % tripsArray.Length;
+            ShowUserControl(new TripRegister(tripsArray[currentTripIndex]));
         }
-        private void ShowUserControl(UserControl control)
+        private void LeftPictureBox_Click(object sender, EventArgs e)
         {
-            control.Dock = DockStyle.Fill;
-            showPanel.Controls.Clear();
-            showPanel.Controls.Add(control);
+            currentTripIndex--;
+
+            currentTripIndex = ((currentTripIndex % tripsArray.Length) + tripsArray.Length) % tripsArray.Length;
+            ShowUserControl(new TripRegister(tripsArray[currentTripIndex]));
+        }
+        private void UserDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                form.Close();
+            }
+            Application.Exit();
         }
     }
 }
