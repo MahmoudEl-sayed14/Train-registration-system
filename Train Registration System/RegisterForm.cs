@@ -106,9 +106,11 @@ namespace Train_Registration_System
         private void NameTxt_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string name = nameTxt.Text.Trim();
-            if (string.IsNullOrEmpty(name))
+            var validations = new Validations();
+
+            if (!validations.IsValidName(name))
             {
-                errorProvider.SetError(nameTxt, "Please fill this field.");
+                errorProvider.SetError(nameTxt, "The name is used by another user or is not a valid name;\nPlease enter a valid phone name.");
             }
             else
             {
@@ -122,7 +124,7 @@ namespace Train_Registration_System
 
             if (!validations.IsValidPhoneNumber(phone))
             {
-                errorProvider.SetError(phoneTxt, "Please enter a valid phone number.");
+                errorProvider.SetError(phoneTxt, "The phone number is used by another user or is not a valid phone number;\nPlease enter a valid phone number.");
             }
             else
             {
@@ -136,7 +138,7 @@ namespace Train_Registration_System
 
             if (!validations.IsValidEmail(email))
             {
-                errorProvider.SetError(emailTxt, "Please enter a valid email.");
+                errorProvider.SetError(emailTxt, "The email address is already in use by another user or is invalid;\nPlease enter a valid email address. ");
             }
             else
             {
@@ -146,7 +148,9 @@ namespace Train_Registration_System
         private void PasswordTxt_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string password = passwordTxt.Text.Trim();
-            if (string.IsNullOrEmpty(password) || password.Length < 6 || password.Length > 20)
+            var validations = new Validations();
+
+            if (!validations.IsValidPassword(password))
             {
                 errorProvider.SetError(passwordTxt, "Password must be more than 6 digits and less than 20.");
             }

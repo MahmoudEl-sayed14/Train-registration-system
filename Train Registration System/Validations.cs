@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Train_Registration_System
         public bool IsValidName(string name)
         {
             string[] names = File.ReadAllLines(UserNamePath);
-            return !names.Contains(name);
+            return !names.Contains(name) && !string.IsNullOrEmpty(name);
         }
         public bool IsValidPassword(string password)
         {
@@ -59,7 +60,7 @@ namespace Train_Registration_System
             }
             if (!IsValidName(name))
             {
-                message.ShowError("Name you have provided is currently in use by another user.");
+                message.ShowError("The name is used by another user or is not a valid name;\nPlease enter a valid phone name.");
                 return;
             }
             if(!IsValidPassword(password))
