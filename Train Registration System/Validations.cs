@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Train_Registration_System
@@ -23,10 +24,18 @@ namespace Train_Registration_System
             string pattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" +"@" + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$";
             return !(emails.Contains(email)) && Regex.IsMatch(email, pattern);
         }
-        public bool IsvalidName(string name)
+        public bool IsValidName(string name)
         {
             string[] names = File.ReadAllLines(UserNamePath);
             return !names.Contains(name);
+        }
+        public bool IsValidPassword(string password)
+        {
+            if (string.IsNullOrEmpty(password) || password.Length < 6 || password.Length > 20)
+            {
+                return false;
+            }
+            return true;
         }
         public void IsValidForm(string name, string phone, string email, string password)
         {
@@ -48,12 +57,16 @@ namespace Train_Registration_System
                 message.ShowError("The phone number is used by another user or is not a valid phone number;\nPlease enter a valid phone number.");
                 return;
             }
-            if (!IsvalidName(name))
+            if (!IsValidName(name))
             {
                 message.ShowError("Name you have provided is currently in use by another user.");
                 return;
             }
-
+            if(!IsValidPassword(password))
+            {
+                message.ShowError("Password must be more than 6 digits and less than 20.");
+                return;
+            }
             var user = new User();
             user.InsertUser(name, email, phone, password);
             message.ShowSuccess("Account created successfully.");
